@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Lista.ListaActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAlimentos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdicionar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+
+        app:backgroundTint="#11C5C2"
+
+        app:srcCompat="@drawable/adicao"
+
+        app:tint="@android:color/white"
+
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/bottomNavMenu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+
+        android:background="#11C5C2"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavEscrita"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/escrita"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textTop"
+            android:backgroundTint="#11C5C2"
+            app:cornerRadius="0dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/blogger"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textTop"
+            android:backgroundTint="#11C5C2"
+            app:cornerRadius="0dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavAnotas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/anotas"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textTop"
+            android:backgroundTint="#11C5C2"
+            app:cornerRadius="0dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
