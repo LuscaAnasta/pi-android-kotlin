@@ -15,6 +15,9 @@
         android:theme="@style/Theme.VitaLogAlpha"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.Perfil.EditarUsuario"
+            android:exported="false" />
+        <activity
             android:name=".view.Lista.AdicionarAlimento"
             android:exported="false" />
         <activity

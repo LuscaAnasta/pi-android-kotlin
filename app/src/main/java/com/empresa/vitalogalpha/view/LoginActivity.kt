@@ -2,6 +2,7 @@ package com.empresa.vitalogalpha.view
 
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -72,6 +73,17 @@ class LoginActivity : AppCompatActivity() {
             if (response.isSuccessful && response.body() != null) {
                 val loginResponses = response.body()!!
                 if (loginResponses.isNotEmpty()) {
+                    val usuarioLogado = loginResponses[0]
+                    val sharedPreferences = getSharedPreferences("Dados", Context.MODE_PRIVATE)
+                    sharedPreferences.edit().apply {
+                        putString("nome_usuario", usuarioLogado.nome)
+                        putInt("id", usuarioLogado.id)
+                        putString("email", usuarioLogado.email)
+                        putString("cpf", usuarioLogado.cpf)
+                        putString("senha", usuarioLogado.senha)
+                        apply()
+                    }
+
                     val intent = Intent(this@LoginActivity, ListaActivity::class.java)
                     startActivity(intent)
                     finish()

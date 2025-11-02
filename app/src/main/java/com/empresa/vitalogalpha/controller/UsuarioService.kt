@@ -26,5 +26,14 @@ interface UsuarioService {
         @Field("senha") senha: String,
         @Field("dataNascimento") dataNasc: String
     ): Call<Void>
+    @FormUrlEncoded
+    @POST("apis/usuario/editar_usuario.php")
+    fun editarUsuario(
+        @Field("id") id: Int,
+        @Field("nome") nome: String,
+        @Field("email") email: String,
+        @Field("senha") senha: String
+    ): Call<Void>
+
 
 }

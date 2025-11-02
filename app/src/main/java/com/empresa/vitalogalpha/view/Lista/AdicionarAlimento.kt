@@ -1,9 +1,8 @@
 package com.empresa.vitalogalpha.view.Lista
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.empresa.vitalogalpha.R
 import com.empresa.vitalogalpha.controller.AlimentoService
-import com.empresa.vitalogalpha.controller.UsuarioService
-import com.empresa.vitalogalpha.model.Usuario
+import com.empresa.vitalogalpha.credentials.Credenciais
+import com.empresa.vitalogalpha.model.Alimento
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +22,11 @@ class AdicionarAlimento : AppCompatActivity() {
 
     private lateinit var btnVoltar: Button
     private lateinit var btnAddAlimento: Button
+
+    private lateinit var edtNome : EditText
+    private lateinit var edtPorcao : EditText
+    private lateinit var edtCaloria : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -40,46 +44,48 @@ class AdicionarAlimento : AppCompatActivity() {
         }
 
         btnAddAlimento = findViewById(R.id.btnAddAlimento)
-
-        btnAddAlimento.setOnClickListener {
-
-        }
-    }
-
-    private fun cadastrarAlimento(){
+        edtNome = findViewById(R.id.edtNome)
+        edtPorcao = findViewById(R.id.edtEmail)
+        edtCaloria = findViewById(R.id.edtSenha)
+        val cred = Credenciais()
+        // ConfiguraÃƒÂ§ÃƒÂ£o do Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.0.112/") // Substitua pelo seu endereÃƒÂ§o base
+            .baseUrl(cred.ip) // Substitua pelo seu endereÃƒÂ§o base
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val apiService = retrofit.create(AlimentoService::class.java)
 
-        Log.d("1", "1");
-        val novoAlimento = Usuario(
-            0
+        btnAddAlimento.setOnClickListener {
+            val alimento = Alimento(
+                0,  // O ID serÃƒÂ¡ gerado automaticamente no banco de dados
+                edtNome.text.toString(),
+                edtPorcao.text.toString(),
+                edtCaloria.text.toString().toFloat()
             )
-        Log.d("2", "2");
 
-        apiService.incluirUsuario(
-            novoAlimento.cpf,
-            novoAlimento.nome,
-            novoAlimento.nomeCompleto
-        ).enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                Log.d("3", response.toString());
-                if (response.isSuccessful) {
-                    Toast.makeText(this@CadastroTresActivity, "Cadastro efetuado com sucesso", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this@CadastroTresActivity, ListaActivity::class.java)
-                    startActivity(intent)
-                    finishAffinity()
-                } else {
-                    Toast.makeText(this@CadastroTresActivity, "Erro na inclusão", Toast.LENGTH_LONG).show()
+            // Fazer a requisiÃƒÂ§ÃƒÂ£o para incluir o produto
+            apiService.incluirAlimento(
+                alimento.nome,
+                alimento.porcao,
+                alimento.caloria.toString()
+            ).enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@AdicionarAlimento, "Aliemtno adicionado", Toast.LENGTH_LONG).show()
+                        finish()
+//                        finish()
+                    } else {
+                        Toast.makeText(this@AdicionarAlimento, "Erro na Aliemtno", Toast.LENGTH_LONG).show()
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@CadastroTresActivity, "Erro ao incluir o usuario", Toast.LENGTH_LONG).show()
-            }
-        })
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(this@AdicionarAlimento, "Erro ao incluir o Aliemtno", Toast.LENGTH_LONG).show()
+                }
+            })
+        }
     }
 }
+
+

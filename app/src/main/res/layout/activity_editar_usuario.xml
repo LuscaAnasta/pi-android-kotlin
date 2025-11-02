@@ -5,33 +5,32 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Lista.AdicionarAlimento">
+    tools:context=".view.Perfil.EditarUsuario">
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddAlimento"
+        android:id="@+id/btnAtualizar"
         android:layout_width="367dp"
         android:layout_height="60dp"
-        android:text="Continuar"
+        android:text="Atualizar dados"
+
+        android:textColor="@android:color/white"
 
         app:backgroundTint="#11C5C2"
 
         app:cornerRadius="10dp"
 
-        android:textColor="@android:color/white"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSenha"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSenhaConf" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Adicionar Alimento"
+        android:text="Editar Usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +42,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Alimento"
+        android:hint="Nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -55,10 +54,22 @@
         android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Calorias"
+        android:hint="Senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
+    <EditText
+        android:id="@+id/edtSenhaConf"
+        android:layout_width="367dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Confirmar Senha"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -67,7 +78,7 @@
         android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Tamanho da Porção"
+        android:hint="Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNome" />

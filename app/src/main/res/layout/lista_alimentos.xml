@@ -2,6 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
@@ -31,44 +32,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/txtPorcaoAlimento"
             app:layout_constraintBottom_toBottomOf="@+id/txtCaloriaAlimento"/>
+
         <TextView
             android:id="@+id/txtPorcaoAlimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100g"
+            android:layout_marginEnd="4dp"
             android:gravity="end"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnRemover"/>
+            android:text="100g"
+            app:layout_constraintEnd_toStartOf="@+id/btnRemover"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtCaloriaAlimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:gravity="end"
             android:text="250 kcal"
             android:textStyle="bold"
-            android:gravity="end"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toBottomOf="@id/txtPorcaoAlimento"
-            app:layout_constraintEnd_toStartOf="@+id/btnRemover"/>
+            app:layout_constraintEnd_toStartOf="@+id/btnRemover"
+            app:layout_constraintTop_toBottomOf="@id/txtPorcaoAlimento" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btnRemover"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-
-            android:src="@drawable/menos"
-
-            android:background="@null"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-
+            android:layout_width="59dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="4dp"
             android:contentDescription="Remover item"
-
-            app:layout_constraintTop_toTopOf="parent"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="-"
+            android:textSize="20sp"
+            app:backgroundTint="#11C5C2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/adicao" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

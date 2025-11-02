@@ -7,4 +7,98 @@
     android:layout_height="match_parent"
     tools:context=".view.Lista.RelatoriosActivity">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="163dp"
+        android:text="Relatorios Semanais"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Realato"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/bottomNavMenu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+
+        android:background="#11C5C2"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavEscrita"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/escrita"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textTop"
+            android:backgroundTint="#11C5C2"
+            app:cornerRadius="0dp"/>
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavAnotas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/anotas"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textTop"
+            android:backgroundTint="#11C5C2"
+            app:cornerRadius="0dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/blogger"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textTop"
+            android:backgroundTint="#11C5C2"
+            app:cornerRadius="0dp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="327dp"
+        android:layout_height="547dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/relatoriosplaceholder" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

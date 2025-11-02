@@ -14,11 +14,18 @@ interface AlimentoService {
 
     @FormUrlEncoded
     @POST("apis/alimento/incluir_alimento.php")
-    fun incluirUsuario(
+    fun incluirAlimento(
         @Field("nome") nome: String,
         @Field("porcao") porcao: String,
         @Field("caloria") caloria: String
 
     ): Call<Void>
+
+    @FormUrlEncoded
+    @POST("apis/alimento/deletar_alimento.php")
+    fun deletarAlimento(
+        @Field("id") id: Int
+    ): Call<Void>
+
 
 }
